@@ -1,0 +1,7 @@
+docker run --name wp-mysql -v /data/DockerData/wp-mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=wpm005 -d mysql:5.7.22
+docker run --name wp-wordpress -v /data/DockerData/wp-wordpress:/var/lib/html --link wp-mysql:mysql -p 8080:80 -d wordpress
+
+On sccoos-alamos:
+
+sudo docker run --name wp-mysql -v wp-mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=wpm005 -d mysql:5.7.22
+sudo docker run --name wp-wordpress -v wp-wordpress:/var/lib/html --link wp-mysql:mysql -p 8080:80 -d wordpress:php7.2
